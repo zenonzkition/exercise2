@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista postów</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    </head>
+    <body>
+        <h1>Lista postów</h1>
+        {% for notice in app.flashes('notice') %}
+            {{ notice }}
+        {% endfor %}
+        <ul>
+        {% for post in posts %}
+            <li>
+                {{ post.title }} - {{ post.author }}
+                <a href="{{ path('delete_post', {'id': post.id }) }}">Usuń</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </body>
+</html>
